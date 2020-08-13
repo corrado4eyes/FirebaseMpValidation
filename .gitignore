@@ -1,0 +1,15 @@
+*.iml
+.gradle
+local.properties
+.idea/
+.DS_Store
+build
+captures
+.externalNativeBuild
+.cxx
+FirebaseMPValidationiOS/FirebaseMPValidationiOS.xcworkspace/
+FirebaseMPValidationiOS/Podfile.lock
+FirebaseMPValidationiOS/Pods
+app/google-services.json
+FirebaseMPValidationiOS/FirebaseMPValidationiOS/GoogleService-Info.plist
+shared/shared.podspec
