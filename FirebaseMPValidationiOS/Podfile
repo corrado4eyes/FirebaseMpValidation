@@ -1,0 +1,7 @@
+platform :ios, '13.5'
+
+target 'FirebaseMPValidationiOS' do
+    use_frameworks!
+
+    pod 'shared', :path => '../shared/'
+end
