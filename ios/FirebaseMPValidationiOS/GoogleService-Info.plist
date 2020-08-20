@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>967897702420-4q6en3vrnnj3b821maniggcb6ko4ipf3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.967897702420-4q6en3vrnnj3b821maniggcb6ko4ipf3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC5eQlqaEPij5UaOAgDyYQko1TLtNcbNN8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>967897702420</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.splendo.ZoomDemo</string>
+	<key>PROJECT_ID</key>
+	<string>zoompoc-f7b7f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zoompoc-f7b7f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:967897702420:ios:29e13992e2e5cc905e0701</string>
+	<key>DATABASE_URL</key>
+	<string>https://zoompoc-f7b7f.firebaseio.com</string>
+</dict>
+</plist>

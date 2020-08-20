@@ -34,19 +34,6 @@ allprojects {
     }
 }
 
-listOf("bootstrap", "update").forEach {
-    task<Exec>("carthage${it.capitalize()}") {
-        group = "carthage"
-        executable = "carthage"
-        args(
-            it,
-            "--project-directory", "shared/src/iosMain/c_interop",
-            "--platform", "iOS",
-            "--cache-builds"
-        )
-    }
-}
-
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }

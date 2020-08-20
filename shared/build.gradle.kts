@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -88,4 +89,33 @@ kotlin {
         }
     }
 
+}
+
+listOf("bootstrap", "update").forEach {
+    task<Exec>("carthage${it.capitalize()}") {
+        group = "carthage"
+        executable = "carthage"
+        args(
+            it,
+            "--project-directory", "src/iosMain/c_interop",
+            "--platform", "iOS",
+            "--cache-builds"
+        )
+    }
+}
+
+tasks.create("carthageClean", Delete::class.java) {
+    group = "carthage"
+    delete(File("$projectDir/src/iosMain/c_interop/Carthage"))
+    delete(File("$projectDir/src/iosMain/c_interop/Cartfile.resolved"))
+}
+
+project.afterEvaluate {
+    tasks.findByName("linkDebugFrameworkIos")?.let {
+        it.dependsOn("carthageUpdate")
+    }
+    tasks.findByName("linkReleaseFrameworkIos")?.let {
+        it.dependsOn("carthageUpdate")
+    }
+    tasks.clean.dependsOn("carthageClean")
 }

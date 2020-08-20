@@ -1,5 +1,6 @@
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.FirebaseApp
+import dev.gitlive.firebase.firestore.FirebaseFirestore
 import dev.gitlive.firebase.firestore.firestore
 import dev.gitlive.firebase.initialize
 import kotlinx.serialization.ImplicitReflectionSerializer
@@ -18,7 +19,10 @@ class FirestoreRepository(context: Any?) {
 
     suspend fun getDocument(documentPath: String): MeetingData {
         println("FirestoreRepository: firebaseApp: ${firebaseApp?.name}")
+        println("FirestoreRepository: firestoreApp: ${firestore.name}")
         return firestore.document(documentPath).get().data()
 //        return MeetingData(id = "id")
     }
 }
+
+expect val FirebaseFirestore.name: String?
