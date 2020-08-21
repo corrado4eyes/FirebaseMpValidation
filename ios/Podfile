@@ -4,4 +4,5 @@ target 'FirebaseMPValidationiOS' do
     use_frameworks!
 
     pod 'shared', :path => '../shared/'
+    pod 'Firebase/Firestore'
 end

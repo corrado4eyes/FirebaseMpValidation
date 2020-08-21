@@ -1,3 +1,4 @@
+import com.splendo.kaluga.logging.debug
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.FirebaseApp
 import dev.gitlive.firebase.firestore.FirebaseFirestore
@@ -18,8 +19,8 @@ class FirestoreRepository(context: Any?) {
     private val firestore by lazy { firebase.firestore }
 
     suspend fun getDocument(documentPath: String): MeetingData {
-        println("FirestoreRepository: firebaseApp: ${firebaseApp?.name}")
-        println("FirestoreRepository: firestoreApp: ${firestore.name}")
+        debug("FirestoreRepository", "firebaseApp: ${firebaseApp?.name}")
+        debug("FirestoreRepository", "firestoreApp: ${firestore.name}")
         return firestore.document(documentPath).get().data()
 //        return MeetingData(id = "id")
     }

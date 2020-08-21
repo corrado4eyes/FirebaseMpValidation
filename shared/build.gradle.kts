@@ -1,4 +1,3 @@
-import com.android.build.gradle.internal.tasks.factory.dependsOn
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -49,6 +48,7 @@ kotlin {
                 implementation(kotlin("stdlib-common", kotlinVersion))
                 // Common Deps
 
+                implementation("com.splendo.kaluga:logging:0.0.5")
                 implementation("dev.gitlive:firebase-firestore:$commonFirebaseVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
 
@@ -81,41 +81,7 @@ kotlin {
         summary = "FirebaseMPValidation"
         homepage = "homepage"
         framework {
-            isStatic = false
-            val carthageBinaries =
-                File("${projectDir.absolutePath}/src/iosMain/c_interop/Carthage/Build/iOS").absolutePath
-
-            linkerOpts("-F$carthageBinaries")
+            isStatic = true
         }
     }
-
-}
-
-listOf("bootstrap", "update").forEach {
-    task<Exec>("carthage${it.capitalize()}") {
-        group = "carthage"
-        executable = "carthage"
-        args(
-            it,
-            "--project-directory", "src/iosMain/c_interop",
-            "--platform", "iOS",
-            "--cache-builds"
-        )
-    }
-}
-
-tasks.create("carthageClean", Delete::class.java) {
-    group = "carthage"
-    delete(File("$projectDir/src/iosMain/c_interop/Carthage"))
-    delete(File("$projectDir/src/iosMain/c_interop/Cartfile.resolved"))
-}
-
-project.afterEvaluate {
-    tasks.findByName("linkDebugFrameworkIos")?.let {
-        it.dependsOn("carthageUpdate")
-    }
-    tasks.findByName("linkReleaseFrameworkIos")?.let {
-        it.dependsOn("carthageUpdate")
-    }
-    tasks.clean.dependsOn("carthageClean")
 }

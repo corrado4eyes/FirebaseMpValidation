@@ -14,3 +14,5 @@ app/google-services.json
 FirebaseMPValidationiOS/FirebaseMPValidationiOS/GoogleService-Info.plist
 shared/shared.podspec
 ios/Pods/
+
+xcuserdata/
